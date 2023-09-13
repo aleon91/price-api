@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @Builder
@@ -31,12 +30,6 @@ public class PriceEnt implements Serializable {
     private LocalDateTime startDate;
     @Column(nullable=false)
     private LocalDateTime endDate;
-    /*@ManyToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="brand_id")
-    private BrandEnt brand;
-    @ManyToOne(optional=false,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="product_id")
-    private ProductEnt product;*/
     private Long brandId;
     private Long productId;
 

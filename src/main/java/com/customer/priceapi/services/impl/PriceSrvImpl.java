@@ -1,6 +1,5 @@
 package com.customer.priceapi.services.impl;
 
-import com.customer.priceapi.entities.BrandEnt;
 import com.customer.priceapi.entities.PriceEnt;
 import com.customer.priceapi.exceptions.NotFoundException;
 import com.customer.priceapi.repositories.PriceRep;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 @Service
