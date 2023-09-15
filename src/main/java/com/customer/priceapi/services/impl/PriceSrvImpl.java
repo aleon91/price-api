@@ -19,10 +19,7 @@ public class PriceSrvImpl implements PriceSrv {
 
     @Override
     public PriceEnt findPrice(Long productId, Long brandId, LocalDateTime date) {
-        List<PriceEnt> prices = priceRep.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId,brandId,date,date);
-        if(prices.size()==1){
-            return prices.get(0);
-        }
-        return prices.stream().max(Comparator.comparing(PriceEnt::getPriority)).orElseThrow(() -> new NotFoundException("Producto no encontrado"));
+        PriceEnt price = priceRep.findTopByProductIdAndBrandIdAndDateOrderByPriorityDesc(productId,brandId,date);
+        return price;
     }
 }

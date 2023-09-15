@@ -2,6 +2,7 @@ package com.customer.priceapi.controllers;
 
 import com.customer.priceapi.entities.PriceEnt;
 import com.customer.priceapi.services.PriceSrv;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class PriceCont {
     private PriceSrv priceSrv;
 
     @GetMapping("/find/{productId}/{brandId}/{date}")
-    public ResponseEntity<PriceEnt> findPrice(@PathVariable Long productId, @PathVariable Long brandId, @PathVariable LocalDateTime date){
+    public ResponseEntity<PriceEnt> findPrice(@PathVariable @NotNull Long productId, @PathVariable @NotNull Long brandId, @PathVariable @NotNull LocalDateTime date){
         return ResponseEntity.ok(priceSrv.findPrice(productId,brandId,date));
     }
 
